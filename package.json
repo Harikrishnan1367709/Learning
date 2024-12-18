@@ -12,6 +12,7 @@
   "dependencies": {
     "@chakra-ui/react": "^3.2.3",
     "@emotion/react": "^11.14.0",
+    "@supabase/supabase-js": "^2.47.8",
     "next-themes": "^0.4.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -27,7 +28,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.12.0",
-    "jsconfig.json": "^2.3.3",
     "vite": "^6.0.1"
   }
 }
