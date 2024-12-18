@@ -3,7 +3,8 @@ import App1 from './App1'
 import { Text } from "@chakra-ui/react"
 import { Box } from "@chakra-ui/react"
 import { Flex } from "@chakra-ui/react"
-import supabase from './config/supabase'
+import supabase from './supabase'
+
 
 
 
