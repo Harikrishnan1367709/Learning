@@ -425,3 +425,30 @@
 // };
 
 // export default LandingPage;
+
+//useCallBack
+import React, { useCallback, useState } from 'react'
+import List from './List';
+List
+
+function App() {
+  const[number,setnumber]=useState(0);
+  const[dark,useDark]=useState(false);
+
+  const getitems=useCallback(()=>{
+    return[number+1,number+2,number+3];
+  },[number])
+  const style={
+    backgroundColor:dark?"black":"white",
+    color:dark?"white":"black"
+  }
+  return (
+    <div style={style}>
+      <input type="number" value={number} onChange={(e)=>setnumber(parseInt(e.target.value))}/>
+      <button onClick={()=>{useDark((curr)=>!curr)}}>Toggle Theme</button>
+      <List getitems={getitems}/>
+    </div>
+  )
+}
+
+export default App
