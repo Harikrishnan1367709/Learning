@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button, HStack } from "@chakra-ui/react"
+import List from './List'
 
-function App1() {
+const App1 = () => {
   return (
-   <HStack>
-       <Button variant="surface">submit</Button>
-       </HStack>
+    <div>
+      <h1>App1</h1>
+      <List />
+    </div>
   )
-   
 }
 
 export default App1

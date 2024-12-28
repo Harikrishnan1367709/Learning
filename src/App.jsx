@@ -427,26 +427,82 @@
 // export default LandingPage;
 
 //useCallBack
-import React, { useCallback, useState } from 'react'
-import List from './List';
-List
 
-function App() {
-  const[number,setnumber]=useState(0);
-  const[dark,useDark]=useState(false);
+// import React, { useCallback, useState } from 'react'
+// import List from './List';
+// List
 
-  const getitems=useCallback(()=>{
-    return[number+1,number+2,number+3];
-  },[number])
-  const style={
-    backgroundColor:dark?"black":"white",
-    color:dark?"white":"black"
-  }
+// function App() {
+//   const[number,setnumber]=useState(0);
+//   const[dark,useDark]=useState(false);
+
+//   const getitems=useCallback(()=>{
+//     return[number+1,number+2,number+3];
+//   },[number])
+//   const style={
+//     backgroundColor:dark?"black":"white",
+//     color:dark?"white":"black"
+//   }
+//   return (
+//     <div style={style}>
+//       <input type="number" value={number} onChange={(e)=>setnumber(parseInt(e.target.value))}/>
+//       <button onClick={()=>{useDark((curr)=>!curr)}}>Toggle Theme</button>
+//       <List getitems={getitems}/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+//useContext
+
+// import React, { createContext, useContext, useState } from 'react'
+// import App1 from './App1'
+// export const createcontect=createContext();
+// const App = () => {
+//   const[theme,settheme]=useState("light");
+
+//   const taggletheme=()=>{
+//     settheme((curr)=>(curr==="light"?"dark":"light"));
+//   }
+ 
+//   return (
+    
+//       <createcontect.Provider value={{theme}}>
+//       <button onClick={taggletheme}>toggletheme</button>
+//       <h1>App</h1>
+//       <App1 />
+//       </createcontect.Provider>
+    
+//   )
+// }
+
+// export default App
+
+//useReducer
+import { Center } from '@chakra-ui/react';
+import React, { useReducer, useState } from 'react'
+function reducerfn(state,action){
+switch(action.type){
+case "increment":
+return {count:state.count+1};
+case "decrement":
+return {count:state.count-1};
+default:
+return state;
+}
+}
+const App = () => {
+  const[count,setcount]=useState(0);
+  const[state,dispatch]=useReducer(reducerfn,{count:1})
+
+  console.log(state);
   return (
-    <div style={style}>
-      <input type="number" value={number} onChange={(e)=>setnumber(parseInt(e.target.value))}/>
-      <button onClick={()=>{useDark((curr)=>!curr)}}>Toggle Theme</button>
-      <List getitems={getitems}/>
+    <div style={{display:"flex",alignItems:"center"}}>
+      <button onClick={()=>dispatch({type:"increment"})} style={{marginRight:"1em"}}>Add</button>
+      <h1  style={{marginRight:"1em"}}>{state.count}</h1>
+      <button onClick={()=>dispatch({type:"decrement"})} style={{marginRight:"1em"}}>Minus</button>
+      
     </div>
   )
 }
