@@ -480,30 +480,59 @@
 // export default App
 
 //useReducer
-import { Center } from '@chakra-ui/react';
-import React, { useReducer, useState } from 'react'
-function reducerfn(state,action){
-switch(action.type){
-case "increment":
-return {count:state.count+1};
-case "decrement":
-return {count:state.count-1};
-default:
-return state;
-}
-}
-const App = () => {
-  const[count,setcount]=useState(0);
-  const[state,dispatch]=useReducer(reducerfn,{count:1})
 
-  console.log(state);
-  return (
-    <div style={{display:"flex",alignItems:"center"}}>
-      <button onClick={()=>dispatch({type:"increment"})} style={{marginRight:"1em"}}>Add</button>
-      <h1  style={{marginRight:"1em"}}>{state.count}</h1>
-      <button onClick={()=>dispatch({type:"decrement"})} style={{marginRight:"1em"}}>Minus</button>
+// import { Center } from '@chakra-ui/react';
+// import React, { useReducer, useState } from 'react'
+// function reducerfn(state,action){
+// switch(action.type){
+// case "increment":
+// return {count:state.count+1};
+// case "decrement":
+// return {count:state.count-1};
+// default:
+// return state;
+// }
+// }
+// const App = () => {
+//   const[count,setcount]=useState(0);
+//   const[state,dispatch]=useReducer(reducerfn,{count:1})
+
+//   console.log(state);
+//   return (
+//     <div style={{display:"flex",alignItems:"center"}}>
+//       <button onClick={()=>dispatch({type:"increment"})} style={{marginRight:"1em"}}>Add</button>
+//       <h1  style={{marginRight:"1em"}}>{state.count}</h1>
+//       <button onClick={()=>dispatch({type:"decrement"})} style={{marginRight:"1em"}}>Minus</button>
       
-    </div>
+//     </div>
+//   )
+// }
+
+// export default App
+
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Users from './pages/Users'
+import Contact from './pages/Contact'
+import Navbar from './pages/Navbar'
+
+
+
+
+
+const App = () => {
+  return (
+  <BrowserRouter>
+  {/* <Navbar/> */}
+  <Routes>
+   <Route path="/" element={<Home/>}></Route>
+   <Route path="/Users" element={<Users/>}></Route>
+   <Route path="/About" element={<About/>}></Route>
+   <Route path="/Contact" element={<Contact/>}></Route>
+  </Routes>
+  </BrowserRouter>
   )
 }
 
