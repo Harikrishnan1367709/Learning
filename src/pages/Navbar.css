@@ -1,0 +1,23 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: rgb(25, 25, 71);
+    color: white;
+    margin-bottom: 5em;
+}
+ul{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style:none;
+    gap:1em;
+    ogo{
+padding: 1.5em;
+will-change:filter;
+filter:drop-shadow(0 0 2em #646464)
+    }
+}

@@ -571,41 +571,74 @@ import React, { Component } from 'react';
 
 //Class Based Components
 
-class App extends Component{
-  constructor(props){
-    super(props);
-    this.state={
-    first:1,
-    second:100
+// class App extends Component{
+//   constructor(props){
+//     super(props);
+//     this.state={
+//     first:1,
+//     second:100
     
-    };
-    this.handleclick1=this.handleclick1.bind(this);
-    this.handleclick2=this.handleclick2.bind(this);
+//     };
+//     this.handleclick1=this.handleclick1.bind(this);
+//     this.handleclick2=this.handleclick2.bind(this);
 
-  }
-  handleclick1(){
-    this.setState({first:this.state.first+1})
-  }
-  handleclick2(){
-    this.setState({second:this.state.second+1})
-  }
-  componentDidMount(){
-    console.log("Good Morning")
-  }
-  componentDidUpdate(prevProps,prevState){
-    if(prevProps.first !=this.state.first){
-      console.log("first value changed")
-    }
-  }
-  render(){
-    return(
-    <div>
-      <h1>first : {this.state.first}</h1>
-      <h1>Second : {this.state.second}</h1>
-      <button onClick={this.handleclick1}>Add First</button>
-      <button onClick={this.handleclick2}>Add Second</button>
-    </div>
-  );
-  }
+//   }
+//   handleclick1(){
+//     this.setState({first:this.state.first+1})
+//   }
+//   handleclick2(){
+//     this.setState({second:this.state.second+1})
+//   }
+//   componentDidMount(){
+//     console.log("Good Morning")
+//   }
+//   componentDidUpdate(prevProps,prevState){
+//     if(prevProps.first !=this.state.first){
+//       console.log("first value changed")
+//     }
+//   }
+//   render(){
+//     return(
+//     <div>
+//       <h1>first : {this.state.first}</h1>
+//       <h1>Second : {this.state.second}</h1>
+//       <button onClick={this.handleclick1}>Add First</button>
+//       <button onClick={this.handleclick2}>Add Second</button>
+//     </div>
+//   );
+//   }
+// }
+// export default App;
+
+//Protected Routes
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
+import Users from './pages/Users'
+import Contact from './pages/Contact'
+import Privaterouter from './pages/Privaterouter';
+
+
+
+
+
+
+const App = () => {
+  return (
+  <BrowserRouter>
+ 
+  <Routes>
+   <Route path="/" element={<Home/>}></Route>
+   <Route path="/Users" element={<Users/>}></Route>
+   <Route element={<Privaterouter/>}>
+   <Route path="/About" element={<About/>}></Route>
+   </Route>
+   <Route path="/Contact" element={<Contact/>}></Route>
+  </Routes>
+  </BrowserRouter>
+  )
 }
-export default App;
+
+export default App
+

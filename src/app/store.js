@@ -5,7 +5,7 @@ import { configureStore } from "@reduxjs/toolkit";
 const store = configureStore({
   reducer: {
     userinfo: userReducer,
-    fruitinfo:fruitReducer
+    // fruitinfo:fruitReducer
   },
 });
 

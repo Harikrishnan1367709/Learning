@@ -17,14 +17,14 @@ const Contact = () => {
   return (
     <div>
       <Navbar />
-      <h1>Contact</h1>
-      <input
+      <h1>Logout</h1>
+      {/* <input
         type="text"
         placeholder="Enter a fruit"
         value={fruitInput}
         onChange={(e) => setFruitInput(e.target.value)} // Use onChange instead of onClick
       />
-      <button onClick={addFruit}>Add Fruit</button>
+      <button onClick={addFruit}>Add Fruit</button> */}
     </div>
   );
 };

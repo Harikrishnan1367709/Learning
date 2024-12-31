@@ -16,7 +16,7 @@ const Users = () => {
     <div>
       <Navbar />
       <div>
-        {users.map((value, index) => {
+        {/* {users.map((value, index) => {
           return (
             <div key={index}>
               <h1>{value.Name}</h1>
@@ -26,7 +26,8 @@ const Users = () => {
               <button onClick={() => deluser(index)}>delete</button>
             </div>
           );
-        })}
+        })} */}
+        <h1>Home</h1>
       </div>
     </div>
   );
