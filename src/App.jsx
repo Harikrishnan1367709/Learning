@@ -1,6 +1,9 @@
 // import { useState } from "react";
 // import supabase from "./supabase";
 // import { Box, Button, Center, Field, Input, Text } from "@chakra-ui/react";
+import { TimelineSeparator } from '@chakra-ui/react';
+import React, { Component } from 'react';
+
 
 // function App() {
 //   const [username, setUsername] = useState('');
@@ -510,30 +513,99 @@
 
 // export default App
 
-import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Users from './pages/Users'
-import Contact from './pages/Contact'
-import Navbar from './pages/Navbar'
+
+//React Redux
+
+// import React from 'react'
+// import { BrowserRouter, Route, Routes } from 'react-router-dom'
+// import Home from './pages/Home'
+// import About from './pages/About'
+// import Users from './pages/Users'
+// import Contact from './pages/Contact'
+// import Navbar from './pages/Navbar'
 
 
 
 
 
-const App = () => {
-  return (
-  <BrowserRouter>
-  {/* <Navbar/> */}
-  <Routes>
-   <Route path="/" element={<Home/>}></Route>
-   <Route path="/Users" element={<Users/>}></Route>
-   <Route path="/About" element={<About/>}></Route>
-   <Route path="/Contact" element={<Contact/>}></Route>
-  </Routes>
-  </BrowserRouter>
-  )
+// const App = () => {
+//   return (
+//   <BrowserRouter>
+//   {/* <Navbar/> */}
+//   <Routes>
+//    <Route path="/" element={<Home/>}></Route>
+//    <Route path="/Users" element={<Users/>}></Route>
+//    <Route path="/About" element={<About/>}></Route>
+//    <Route path="/Contact" element={<Contact/>}></Route>
+//   </Routes>
+//   </BrowserRouter>
+//   )
+// }
+
+// export default App
+
+
+//Functional based component vs class Based Component
+//Functional component
+// import React, { Component, useEffect, useState } from 'react'
+
+// const App = () => {
+//   const [first,setfirst]=useState(1);
+//   const [second,setsecond]=useState(100);
+//   const getdata=()=>{
+//     console.log("success")
+//   }
+//   useEffect(()=>{getdata()},[])
+//   useEffect(()=>{console.log("first value changed")},[first])
+//   return (
+//     <div>
+//       <h1>First : {first}</h1>
+//       <h1>Second : {second}</h1>
+//       <button onClick={()=>{setfirst((curr)=>curr+1)}}>Add First</button>
+//       <button onClick={()=>{setsecond((curr)=>curr+1)}}>Add Second</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+//Class Based Components
+
+class App extends Component{
+  constructor(props){
+    super(props);
+    this.state={
+    first:1,
+    second:100
+    
+    };
+    this.handleclick1=this.handleclick1.bind(this);
+    this.handleclick2=this.handleclick2.bind(this);
+
+  }
+  handleclick1(){
+    this.setState({first:this.state.first+1})
+  }
+  handleclick2(){
+    this.setState({second:this.state.second+1})
+  }
+  componentDidMount(){
+    console.log("Good Morning")
+  }
+  componentDidUpdate(prevProps,prevState){
+    if(prevProps.first !=this.state.first){
+      console.log("first value changed")
+    }
+  }
+  render(){
+    return(
+    <div>
+      <h1>first : {this.state.first}</h1>
+      <h1>Second : {this.state.second}</h1>
+      <button onClick={this.handleclick1}>Add First</button>
+      <button onClick={this.handleclick2}>Add Second</button>
+    </div>
+  );
+  }
 }
-
-export default App
+export default App;
