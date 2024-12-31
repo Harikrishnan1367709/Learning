@@ -2,7 +2,9 @@
 // import supabase from "./supabase";
 // import { Box, Button, Center, Field, Input, Text } from "@chakra-ui/react";
 import { TimelineSeparator } from '@chakra-ui/react';
+
 import React, { Component } from 'react';
+import axios from './axios';
 
 
 // function App() {
@@ -612,31 +614,55 @@ import React, { Component } from 'react';
 
 //Protected Routes
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import Users from './pages/Users'
-import Contact from './pages/Contact'
-import Privaterouter from './pages/Privaterouter';
+// import { BrowserRouter, Route, Routes } from 'react-router-dom'
+// import Home from './pages/Home'
+// import About from './pages/About'
+// import Users from './pages/Users'
+// import Contact from './pages/Contact'
+// import Privaterouter from './pages/Privaterouter';
 
 
 
 
+
+
+// const App = () => {
+//   return (
+//   <BrowserRouter>
+ 
+//   <Routes>
+//    <Route path="/" element={<Home/>}></Route>
+//    <Route path="/Users" element={<Users/>}></Route>
+//    <Route element={<Privaterouter/>}>
+//    <Route path="/About" element={<About/>}></Route>
+//    </Route>
+//    <Route path="/Contact" element={<Contact/>}></Route>
+//   </Routes>
+//   </BrowserRouter>
+//   )
+// }
+
+// export default App
 
 
 const App = () => {
+  //Fetch
+  // async function apicall(){
+  //   const response=await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  //   const data= await response.json()
+  //   console.log(data);
+  // }
+  //Axios
+  async function apicall(){
+    const response=await axios.get("/todos/1");
+    
+    console.log(response.data);
+  }
   return (
-  <BrowserRouter>
- 
-  <Routes>
-   <Route path="/" element={<Home/>}></Route>
-   <Route path="/Users" element={<Users/>}></Route>
-   <Route element={<Privaterouter/>}>
-   <Route path="/About" element={<About/>}></Route>
-   </Route>
-   <Route path="/Contact" element={<Contact/>}></Route>
-  </Routes>
-  </BrowserRouter>
+    <div>
+    <h1>API</h1>
+    <button onClick={apicall}>click</button>
+    </div>
   )
 }
 
